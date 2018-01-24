@@ -4,7 +4,17 @@
 
 AWS Cognito provides a REST interface for authenticating and generating tokens for its user pools.  This project allows a user to easily configure and generate Postman collections to easily request tokens from a Cognito user pool.
 
-Using these APIs will require some knowledge of OAUTH2 and authentication flows such as [authorization code grant](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant).
+Using these APIs will require some knowledge of OAUTH2 and authorization flows such as [authorization code grant](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant).
+
+To get a token/code from AWS Cognito, you should direct your web browser to:
+
+*Code (for auth code grant flow)*: `https://<domain>.auth.<region>.amazoncognito.com/login?response_type=code&client_id=<client id>&redirect_uri=<callback>&state=STATE&scope=<scope1+scope2+scope3...>`
+
+Once you have logged-in with the username/password of a user from the pool, you will be redirected to the callback URL with `code` as a query parameter.  You can use this to get tokens.
+
+*Token (for implicit flow)*: `https://<domain>.auth.<region>.amazoncognito.com/login?response_type=token&client_id=<client id>&redirect_uri=<callback>&state=STATE&scope=<scope1+scope2+scope3...>`
+
+Once you have logged-in with the username/password of a user from the pool, you will be redirected to the callback URL with `id_token` as a query parameter which will contain identification information.  You can use the `access_token` parameter for access to resources.
 
 Upcoming features will include:
 * A CLI to generate configuration
