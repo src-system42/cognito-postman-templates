@@ -4,6 +4,8 @@
 
 AWS Cognito provides a REST interface for authenticating and generating tokens for its user pools.  This project allows a user to easily configure and generate Postman collections to easily request tokens from a Cognito user pool.
 
+Using these APIs will require some knowledge of OAUTH2 and authentication flows such as [authorization code grant](https://auth0.com/docs/api-auth/tutorials/authorization-code-grant).
+
 Upcoming features will include:
 * A CLI to generate configuration
 * A CLI to run generation with flags for workspace, config location
