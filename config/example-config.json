@@ -1,0 +1,25 @@
+{
+    "collections": [
+        {
+            "collectionName": "Example Collection",
+            "description": "Tests using test pool on AWS dev instance",
+            "credentials": {
+                "clientId": "<cognito-app-client-id>",
+                "clientSecret": "<cognito-app-client-secret>",
+                "scopes": "<cognito-app-client-scopes>",
+                "domain": "<cognito-app-client-domain>"
+            },
+            "code": {
+                "clientId": "<cognito-app-client-id>",
+                "clientSecret": "<cognito-app-client-secret>",
+                "redirectUri": "<cognito-app-client-callback>",
+                "domain": "<cognito-app-client-domain>"
+            },
+            "refresh": {
+                "clientId": "<cognito-app-client-id>",
+                "clientSecret": "<cognito-app-client-secret>",
+                "domain": "<cognito-app-client-domain>"
+            }
+        }
+    ]
+}

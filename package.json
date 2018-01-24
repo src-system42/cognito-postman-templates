@@ -1,0 +1,41 @@
+{
+  "name": "cognito-postman-templates",
+  "version": "1.0.0",
+  "description": "Generator for creating Postman collections to test Cognito endpoints.",
+  "main": "generate.js",
+  "engines": {
+    "node": ">= 6.9.0",
+    "npm": ">= 3.0.0"
+  },
+  "repository": {},
+  "scripts": {
+    "clean": "rimraf collections",
+    "lint": "eslint generate.js",
+    "pregenerate": "mkdirp collections",
+    "generate": "node generate.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cognito",
+    "aws",
+    "security",
+    "postman",
+    "api",
+    "endpoints"
+  ],
+  "author": "Matt Johnson, Cedrus LLC (mj@cedrus.digital)",
+  "license": "MIT",
+  "devDependencies": {
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "eslint": "^4.14.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jasmine": "^2.9.1"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "sanitize-filename": "^1.6.1",
+    "uuid": "^3.2.1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+    "extends": "airbnb-base",
+    "plugins": ["jasmine"],
+    "env": {
+        "jasmine": true
+    },
+    "rules": {
+        "indent": ["error", 4],
+        "eol-last": ["error", "never"],
+        "func-names": ["error", "never"],
+        "no-console": ["error", { "allow": ["info", "debug", "warn", "error"] }],
+        "comma-dangle": ["error", {
+            "arrays": "never",
+            "objects": "never",
+            "imports": "never",
+            "exports": "never",
+            "functions": "ignore"
+        }],
+        "no-use-before-define": ["error", { "functions": false, "classes": true }],
+        "linebreak-style": 0,
+        "no-param-reassign": ["error", { "props": false }]
+    }
+}

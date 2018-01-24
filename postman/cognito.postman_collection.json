@@ -1,0 +1,221 @@
+{
+	"info": {
+		"name": "<%= collectionName %>",
+		"_postman_id": "<%= id %>",
+		"description": "<%= description %>",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/token (Request Token - Client Credentials)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "<%= credentials.clientSecret %>",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "<%= credentials.clientId %>",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"description": "Grant type. Must be authorization_code or refresh_token or client_credentials. Required.",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "<%= credentials.scopes %>",
+							"description": "Can be a combination of any custom scopes associated with a client. Any scope requested must be preassociated with the client or it will be ignored at runtime. If the client doesn't request any scopes, the authentication server uses all custom scopes associated with the client. Optional. Only used if the grant_type is client_credentials.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://<%= credentials.domain %>/oauth2/token"
+				},
+				"description": "Request a JWT from Cognito using client credentials"
+			},
+			"response": []
+		},
+		{
+			"name": "/token (Request Token - Code)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "<%= code.clientId %>",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "<%= code.clientSecret %>",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"description": "Grant type. Must be authorization_code or refresh_token or client_credentials. Required.",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "<%= code.redirectUri %>",
+							"description": "Must be the same redirect_uri that was used to get authorization_code in /oauth2/authorize. Required only if grant_type is authorization_code.",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "<%= code.clientId %>",
+							"description": "Client ID. Must be a preregistered client in the user pool. The client must be enabled for Amazon Cognito federation. Required if the client is public and does not have a secret.",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "<code>",
+							"description": "Get using the /login endpoint (see redirect URL). Required if grant_type is authorization_code.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://<%= code.domain %>/oauth2/token"
+				},
+				"description": "Request a JWT from Cognito using client credentials"
+			},
+			"response": []
+		},
+		{
+			"name": "/token (Request Token - Refresh Token)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "<%= refresh.clientId %>",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "<%= refresh.clientSecret %>",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Accept-Encoding",
+						"value": "gzip, deflate, br"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US,en;q=0.9"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"description": "Grant type. Must be authorization_code or refresh_token or client_credentials. Required.",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "<%= refresh.clientId %>",
+							"description": "Client ID. Must be a preregistered client in the user pool. The client must be enabled for Amazon Cognito federation. Required if the client is public and does not have a secret.",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "<refresh token>",
+							"description": "The refresh token. Required if grant_type is refresh_token. Get from /token access point.",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://<%= refresh.domain %>/oauth2/token"
+				},
+				"description": "Request a JWT from Cognito using client credentials"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "f154231d-c42a-4553-b302-0e5254050636",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "8e55d99b-561a-456b-a9e1-56953c11175c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
