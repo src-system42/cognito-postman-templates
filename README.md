@@ -65,4 +65,4 @@ The example configuration looks like:
 ### /token (Request Token - Refresh Token)
 
 ## Copyright
-MIT (c) 2018 Cedrus, LLC.
+MIT (c) 2018 Matt Johnson - Cedrus, LLC.

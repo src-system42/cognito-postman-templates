@@ -7,7 +7,10 @@
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
   },
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/src-system42/cognito-postman-templates.git"
+  },
   "scripts": {
     "clean": "rimraf collections",
     "lint": "eslint generate.js",
