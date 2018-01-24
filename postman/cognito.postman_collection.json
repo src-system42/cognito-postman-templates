@@ -56,9 +56,7 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://<%= credentials.domain %>/oauth2/token"
-				},
+				"url": "https://<%= credentials.domain %>/oauth2/token",
 				"description": "Request a JWT from Cognito using client credentials"
 			},
 			"response": []
@@ -125,9 +123,7 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://<%= code.domain %>/oauth2/token"
-				},
+				"url": "https://<%= code.domain %>/oauth2/token",
 				"description": "Request a JWT from Cognito using client credentials"
 			},
 			"response": []
@@ -188,9 +184,7 @@
 						}
 					]
 				},
-				"url": {
-					"raw": "https://<%= refresh.domain %>/oauth2/token"
-				},
+				"url": "https://<%= refresh.domain %>/oauth2/token",
 				"description": "Request a JWT from Cognito using client credentials"
 			},
 			"response": []
