@@ -29,7 +29,7 @@
   "author": "Matt Johnson, Cedrus LLC (mj@cedrus.digital)",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^5.16.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jasmine": "^2.9.1",
